@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Ninja Gold Index</title>
+  </head>
+  <body>
+
+    <p> Your Gold: {{gold}}</p>
+    <form action="/process_money" method="post">
+      <h2>Farm</h2>
+      <p>(earn 10-20 gold nuggets)</p>
+      <input type="hidden" name="building" value="farm" />
+      <input type="submit" value="Old McDonald!"/>
+    </form>
+    <form action="/process_money" method="post">
+      <h2>Cave</h2>
+      <p> (earn 5-10 gold nuggets)</p>
+      <input type="hidden" name="building" value="cave" />
+      <input type="submit" value="To the Bat-Cave!"/>
+    </form>
+    <form action="/process_money" method="post">
+      <h2>House</h2>
+      <p>(earn 2-5 gold nuggets)</p>
+      <input type="hidden" name="building" value="house" />
+      <input type="submit" value="Gold Between Cushions?"/>
+    </form>
+    <form action="/process_money" method="post">
+      <h2>Casino</h2>
+      <p>(earn/lose 0/50 gold nuggets)</p>
+      <input type="hidden" name="building" value="casino" />
+      <input type="submit" value="Gamblin?!"/>
+    </form>
+    <h2>Activities</h2>
+
+      {%for x in acitivity%}
+        <p>{{activity}}</p>
+      {%endfor%}
+  </body>
+</html>

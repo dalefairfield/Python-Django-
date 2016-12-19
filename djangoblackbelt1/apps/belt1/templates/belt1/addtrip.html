@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Add a Travel Plan </title>
+    <a href="/dashboard">Home<a/>
+    <a href="/">Logout<a/>
+  </head>
+  <body>
+    <h3>Add a Trip!</h3>
+    {%for message in request.session.trip_message%}
+      <p>{{message}}<p>
+    {%endfor%}
+    <form action="/addtrip2" method="POST">
+      {% csrf_token %}
+      <label for="">Destination:</label>
+      <input type="text" name="destination">
+      <label for="">Description:</label>
+      <input type="text" name="description">
+      <label for=""> Travel START Date:</label>
+      <input type="date" name="start">
+      <label for=""> Travel END Date:</label>
+      <input type="date" name="end">
+      <input type="submit" value="ADD THIS TRIP!">
+    </form>
+  </body>
+</html>

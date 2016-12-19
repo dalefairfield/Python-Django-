@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Reviews </title>
+     <a href="/add_review">Add Book and Review></a>
+     <a href="/">Logout></a>
+  </head>
+  <body>
+    <p>Welcome {{first_name}}!</p>
+    {%for x in books%}
+      <a href="/target/this_app/new">{{x.title}}</a>
+      {{reviews.created_at}}
+    {%endfor%}
+    <h2> Other Books with Reviews: </h2>
+    <form action="/books" method="POST">
+      {% csrf_token %}
+      <label for="">Review:</label>
+      <input type="text" name="Review">
+      <label for="">Review:</label>
+      <input type="number" name="review" min="1" max="5" >
+      <input type="submit" value="Submit Review">
+    </form>
+  </body>
+</html>

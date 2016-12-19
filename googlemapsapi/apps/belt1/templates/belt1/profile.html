@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Travel Dashboard </title>
+    <a href="/">Logout<a/>
+  </head>
+  <body>
+    <h3>Welcome to __________ profile</h3>
+    <table>
+      <tr>
+        <th>Destination: </th>
+        <th>Travel Start Date: </th>
+        <th>Travel End Date: </th>
+        <th>Plan: </th>
+      </tr>
+      {% for x in join%}
+        <tr>
+          <td><a href="/destination/{{x.trip.id}}">{{x.trip.destination}}</a></td>
+          <td>{{x.trip.start}}</td>
+          <td>{{x.trip.end}}</td>
+          <td>{{x.trip.description}}</td>
+          <!-- <td><a href="/delete/{{x.trip.id}}">Remove Trip</a></td> -->
+        </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>

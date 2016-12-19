@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+   <title>Google Maps Geocoding Demo 1</title>
+   <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"
+           type="text/javascript"></script> -->
+   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClO2LfpqhgS5Xq9pij4Mk7X93DXbKYdjU&libraries=places"></script>
+   </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+  <p>Destination: <span class="location">{{trip.0.destination}}</span></p>
+    <span class="info">
+    <p>Description: {{trip.0.description}}</p>
+    <p>Planned by: {{trip.0.user.name}}</p>
+    <p>Travel START Date: {{trip.0.start}}</p>
+    <p>Travel END Date: {{trip.0.end}}</p>
+    <h4>People attending this event</h4>
+      {% for x in join %}
+        <p><a href='/profile/{{x.user_id}}'>{{x.user.name}}<a></p>
+      {% endfor %}
+    </span>
+    <!-- <span class="multmarkers">
+      {% for x in other_trips %}
+      {{x.destination}}
+      {%endfor%}
+    </span> -->
+<!-- Google Map taking in the location that was clicked on -->
+<!-- code provides a general location -->
+   <div id="map" style="width: 400px; height: 300px;"></div>
+
+   <script type="text/javascript">
+
+
+
+   var address = $('.location').text(); //takes the html location
+   console.log(address);
+   var map = new google.maps.Map(document.getElementById('map'),
+   { mapTypeId: google.maps.MapTypeId.ROADMAP, zoom: 10 });
+
+   var geocoder = new google.maps.Geocoder();
+
+   geocoder.geocode({'address': address},
+   function(results, status) {
+      if(status == google.maps.GeocoderStatus.OK) {
+         new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map });
+         map.setCenter(results[0].geometry.location);
+      }
+
+// marker that displays the information about the location when clicked
+    var contentString = $('.info').html(); //takes the html info
+    console.log(contentString);
+
+    var infowindow = new google.maps.InfoWindow({
+     content: contentString
+    });
+
+
+    var marker = new google.maps.Marker({
+     position: results[0].geometry.location,
+     map: map,
+     title: address
+    });
+    marker.addListener('click', function() {
+     infowindow.open(map, marker);
+    });
+
+});
+   </script>
+
+</body>
+</html>

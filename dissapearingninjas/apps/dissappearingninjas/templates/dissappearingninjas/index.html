@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Dissapearing Ninjas </title>
+  {%load staticfiles%}
+</head>
+<body>
+  {%if greeting%}
+  {{greeting}}
+  {%elif ninja == 'ninja'%}
+  <img src="{% static 'dissappearingninjas/images/alltmnt.png' %}" alt="All the TMNT" name="TMNT">
+  {%elif color == 'blue'%}
+  <img src="{% static 'dissappearingninjas/images/blueninja.jpg' %}" alt="Leonardo" name="blue">
+  {%elif color == 'red'%}
+  <img src="{% static 'dissappearingninjas/images/redninja.jpg' %}" alt="Raphael" name="red">
+  {%elif color == 'orange'%}
+  <img src="{% static 'dissappearingninjas/images/orangeninja.png' %}" alt="Michaelangelo" name="orange">
+  {%elif color == 'purple'%}
+  <img src="{% static 'dissappearingninjas/images/purpleninja.jpg' %}" alt="Donatello" name="purple">
+  {%else%}
+  <img src="{% static 'dissappearingninjas/images/meganfox.jpg' %}" alt="Megan Fox" name="no_mixing">
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Travel Dashboard </title>
+    <a href="/">Logout<a/>
+  </head>
+  <body>
+    <p>Welcome {{request.session.name}}!</p>
+    <h2>Your Trip Schedules</h2>
+      <table>
+        <tr>
+          <th>Destination     </th>
+          <th>Travel Start Date    </th>
+          <th>Travel End Date    </th>
+          <th>Plan    </th>
+        </tr>
+        {% for x in join%}
+          <tr>
+            <td><a href="/destination/{{x.trip.id}}">{{x.trip.destination}}</a></td>
+            <td>{{x.trip.start}}</td>
+            <td>{{x.trip.end}}</td>
+            <td>{{x.trip.description}}</td>
+            <!-- <td><a href="/delete/{{x.trip.id}}">Remove Trip</a></td> -->
+          </tr>
+        {%endfor%}
+      </table>
+      <a href="/addtrip2">  <input type="button" name="add" value="Add a Travel Plan"></a>
+      <br>
+      <h2>Other User's Travel Plans</h2>
+      <table>
+      <tr>
+        <th>Name    </th>
+        <th>Destination    </th>
+        <th>Travel Start Date     </th>
+        <th>Travel End Date    </th>
+        <th>Description   </th>
+        <th>Do You want to join?    </th>
+      </tr>
+      {% for x in other_trips %}
+      <tr>
+        <tr>
+          <td><a href="/profile/{{x.user_id}}">{{x.user.name}}</td>
+          <td><a href="/destination/{{x.id}}">{{x.destination}}</a></td>
+          <td>{{x.start}}</td>
+          <td>{{x.end}}</td>
+          <td>{{x.description}}</td>
+          <td><a href="/join/{{x.id}}"><input type="button" name="add" value="JOIN THIS TRIP"></a></td>
+        </tr>
+      </tr>
+
+      {%endfor%}
+    </table>
+  <a href="/addtrip2">  <input type="button" name="add" value="Add a Travel Plan"></a>
+  </body>
+</html>

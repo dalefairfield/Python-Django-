@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>User Counter</title>
+  </head>
+  <body>
+    <h1>Welcome to the Great Number Game</h1>
+    <h3>I'm thinking of a numuber 1 through 100</h3>
+    <h3>Take a guess!</h3>
+    <form action="/users" method="POST">
+      <input type="text" name="guess"><br>
+      <button type="submit">Submit</button>
+    </form>
+    {{answer}}
+    <!-- <form action="/answers" method="POST">
+      <button type="submit">Play Again</button>
+    </form> -->
+    <!-- <form method="post" action="/high">
+      <input type="hidden" name="action" value="register">
+      <input type="text" name="tooHigh"><br>
+      <button type="submit">Submit</button>
+    </form>
+    <form method="post" action="/low">
+      <input type="hidden" name="action" value="register">
+      <input type="text" name="tooLow"><br>
+      <button type="submit">Submit</button>
+    </form>
+    <form method="post" action="/correct">
+      <input type="hidden" name="action" value="register">
+      <input type="text" name="exactly"><br>
+      <button type="submit">Play Again</button>
+    </form> -->
+  </body>
+</html>

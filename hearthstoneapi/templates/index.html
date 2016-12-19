@@ -1,0 +1,19 @@
+<html>
+    <head>
+       <title>Hearthstone API</title>
+    </head>
+    <body>
+      <h1>Hearthstone Card Lookup</h1>
+
+      <form action='/name_card' method='GET'>
+          Name of card: <input type='text' name='name' >
+          <input type="submit" value="Search the Card"/>
+      </form>
+      {%for x in card%}
+        <p>{{x['name']}}</p>
+        <img src='{{x['img']}}'>
+        <p>{{x['cardSet']}}</p>
+        <p>{{x['cardId']}}</p>
+      {%endfor%}
+    </body>
+</html>

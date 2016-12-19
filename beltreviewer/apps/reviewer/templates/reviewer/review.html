@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Reviews </title>
+     <a href="/books">Home></a>
+     <a href="/logout">Logout></a>
+  </head>
+  <body>
+    {{title}}
+    <p>Author {{author}}</p>
+    {%for x in reviews%}
+      {{x}}
+      <hr>
+    {%endfor%}
+    <h2> Reviews: </h2>
+    <form action="/review" method="POST">
+      {% csrf_token %}
+      <label for="">Review:</label>
+      <input type="text" name="Review">
+      <label for="">Review:</label>
+      <input type="number" name="review" min="1" max="5" >
+      <input type="submit" value="Submit Review">
+    </form>
+  </body>
+</html>

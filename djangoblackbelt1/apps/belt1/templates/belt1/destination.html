@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Destination </title>
+    <a href="/dashboard">Home<a/>
+    <a href="/">Logout<a/>
+  </head>
+  <body>
+    <p>Destination: {{trip.0.destination}}</p>
+    <p>Description: {{trip.0.description}}</p>
+    <p>Planned by: {{trip.0.user.name}}</p>
+    <p>Travel START Date: {{trip.0.start}}</p>
+    <p>Travel END Date: {{trip.0.end}}</p>
+    <br>
+    <h2>Trips you have joined</h2>
+    {% for x in join %}
+    <p>{{x.user.name}} planned to got to {{x.trip.destination}} where we will {{x.trip.description}}</p>
+    {% endfor %}
+  </body>
+</html>

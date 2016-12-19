@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>the_wall</title>
+    <h1>Coding Dojo WALL</h1>
+    <h4> Welcome {{first_name}}</h4>
+    <form action='/logout' method='GET'>
+      <input type="submit" value="logout">
+    </form>
+    <hr>
+  </head>
+  <body>
+    <form action='/post' method='POST'>
+      <input type="text" name="message"><br>
+      <input type="submit" value="Post a Message">
+      {% for mess in message %}
+        <p>{{mess['first_name']}} {{mess['last_name']}} {{mess['created_at']}}</p>
+        <p>{{mess['message']}}</p>
+        {% for comm in comment %}
+          {% if mess['id'] == comm['messages_id']%}
+            <h3>{{comm['first_name']}} {{comm['last_name']}} {{comm['created_at']}}</h3>
+            <p>{{comm['comment']}}</p>
+          {%endif%}
+        {% endfor %}
+        </form>
+        <form action='/comment' method='POST'>
+          <input type="hidden" name="message_id" id="message.id" value="{{mess['id']}}">
+          <input type="text" name="comment"><br>
+          <input type="submit" value="Post a comment">
+        </form>
+      {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+       <title>Email Validation Index</title>
+    </head>
+    <body>
+      <h3>Enter your Email Address</h3>
+      <form action='/users' method='POST'>
+          Email: <input type='text' name='email'>
+          <input type='submit' name='submit'>
+      </form>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <h3>Email Address Entered</h3>
+      {%for x in emails%}
+        <p>{{x['email']}}</p>
+      {%endfor%}
+    </body>
+  </html>

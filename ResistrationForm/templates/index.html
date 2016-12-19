@@ -1,0 +1,19 @@
+<html>
+    <head>
+       <title>Registration Form Index</title>
+    </head>
+    <body>
+      <h1>Registration Form</h1>
+      <h3>Enter your information</h3>
+      <p>{{message}}</p>
+      <form action='/users' method='POST'>
+          email: <input type='text' name='email'>
+          Name: <input type='text' name='name'>
+          First Name: <input type='text' name='first_name'>
+          Last Name: <input type='text' name='last_name'>
+          Password: <input type='text' name='password'>
+          Confirm Password: <input type='text' name='confirm_password'>
+      </form>
+
+    </body>
+</html>

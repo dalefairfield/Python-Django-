@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Courses </title>
+  </head>
+  <body>
+    <p>The email address you entered {{email}} is a VALID email address! THANK YOU!</p>
+    {% for email in emails%}
+      {{email.email}}{{email.created_at}}
+      <br>
+    {%endfor%}
+  </body>
+</html>
